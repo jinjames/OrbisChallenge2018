@@ -38,12 +38,12 @@ class PlayerAI:
 
 
         # distance to friendly area
-        friendly_return = world.util.get_closest_friendly_territory_from(friendly_unit.position, friendly_unit.snake)
-        return_distance = len(world.path.get_shortest_path(friendly_unit.position, friendly_return, friendly_unit.snake))
+        # friendly_return = world.util.get_closest_friendly_territory_from(friendly_unit.position, friendly_unit.snake)
+        # return_distance = len(world.path.get_shortest_path(friendly_unit.position, friendly_return, friendly_unit.snake))
 
         # find path to target
 
-        next_move = self.move_normally(self, world, friendly_unit, enemy_units)
+        next_move = self.move_normally(world, friendly_unit, enemy_units)
 
 
         # move!
@@ -90,7 +90,7 @@ class PlayerAI:
 
         # else if inbound and no target set, set target as the closest friendly tile
         elif not self.outbound and self.target is None:
-        self.target = world.util.get_closest_friendly_territory_from(friendly_unit.position, None)
+            self.target = world.util.get_closest_friendly_territory_from(friendly_unit.position, None)
 
         # set next move as the next point in the path to target
         next_move = world.path.get_shortest_path(friendly_unit.position, self.target.position, friendly_unit.snake)[0]
