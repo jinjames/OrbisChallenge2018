@@ -43,6 +43,38 @@ class PlayerAI:
 
         # find path to target
 
+        next_move = self.move_normally(self, world, friendly_unit, enemy_units)
+
+
+        # move!
+        friendly_unit.move(next_move)
+        print("Turn {0}: currently at {1}, making {2} move to {3}.".format(
+            str(self.turn_count),
+            str(friendly_unit.position),
+            'outbound' if self.outbound else 'inbound',
+            str(self.target.position)
+        ))
+
+    def distance_closest_enemy(self, world,friendly_unit, enemy_units):
+        closest_distance = max(world.get_height(), world.get_width())
+        # closest enemy position
+        # distance to any part of snake
+        for enemy in enemy_units:
+            for body in friendly_unit.snake:
+                distance = len(world.path.get_shortest_path(body, enemy.postition, enemy.snake))
+                if distance < closest_distance:
+                    closest_distance = distance
+        return closest_distance
+
+    # returns next move, set target etc
+    def move_normally(self, world, friendly_unit, enemy_units):
+        # if unit is dead, stop making moves.
+        if friendly_unit.status == 'DISABLED':
+            print("Turn {0}: Disabled - skipping move.".format(str(self.turn_count)))
+            self.target = None
+            self.outbound = True
+            return
+
         # if unit reaches the target point, reverse outbound boolean and set target back to None
         if self.target is not None and friendly_unit.position == self.target.position:
             self.outbound = not self.outbound
@@ -56,25 +88,11 @@ class PlayerAI:
                 avoid += [pos for pos in world.get_neighbours(edge.position).values()]
             self.target = world.util.get_closest_capturable_territory_from(friendly_unit.position, avoid)
 
+        # else if inbound and no target set, set target as the closest friendly tile
+        elif not self.outbound and self.target is None:
+        self.target = world.util.get_closest_friendly_territory_from(friendly_unit.position, None)
+
         # set next move as the next point in the path to target
         next_move = world.path.get_shortest_path(friendly_unit.position, self.target.position, friendly_unit.snake)[0]
 
-        # move!
-        friendly_unit.move(next_move)
-        print("Turn {0}: currently at {1}, making {2} move to {3}.".format(
-            str(self.turn_count),
-            str(friendly_unit.position),
-            'outbound' if self.outbound else 'inbound',
-            str(self.target.position)
-        ))
-
-def distance_closest_enemy(world,friendly_unit, enemy_units):
-    closest_distance = max(world.get_height(), world.get_width())
-    # closest enemy position
-    # distance to any part of snake
-    for enemy in enemy_units:
-        for body in friendly_unit.snake:
-            distance = len(world.path.get_shortest_path(body, enemy.postition, enemy.snake))
-            if distance < closest_distance:
-                closest_distance = distance
-    return closest_distance
+        return next_move
