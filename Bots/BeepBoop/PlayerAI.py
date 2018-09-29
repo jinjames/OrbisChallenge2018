@@ -33,12 +33,15 @@ class PlayerAI:
         # increment turn count
         self.turn_count += 1
 
-        # if unit is dead, stop making moves.
-        if friendly_unit.status == 'DISABLED':
-            print("Turn {0}: Disabled - skipping move.".format(str(self.turn_count)))
-            self.target = None
-            self.outbound = True
-            return
+        # calculate where target is
+        # maintain movement to target unless there is threat
+
+
+        # distance to friendly area
+        friendly_return = world.util.get_closest_friendly_territory_from(friendly_unit.position, friendly_unit.snake)
+        return_distance = len(world.path.get_shortest_path(friendly_unit.position, friendly_return, friendly_unit.snake))
+
+        # find path to target
 
         # if unit reaches the target point, reverse outbound boolean and set target back to None
         if self.target is not None and friendly_unit.position == self.target.position:
@@ -53,10 +56,6 @@ class PlayerAI:
                 avoid += [pos for pos in world.get_neighbours(edge.position).values()]
             self.target = world.util.get_closest_capturable_territory_from(friendly_unit.position, avoid)
 
-        # else if inbound and no target set, set target as the closest friendly tile
-        elif not self.outbound and self.target is None:
-            self.target = world.util.get_closest_friendly_territory_from(friendly_unit.position, None)
-
         # set next move as the next point in the path to target
         next_move = world.path.get_shortest_path(friendly_unit.position, self.target.position, friendly_unit.snake)[0]
 
@@ -68,3 +67,14 @@ class PlayerAI:
             'outbound' if self.outbound else 'inbound',
             str(self.target.position)
         ))
+
+def distance_closest_enemy(world,friendly_unit, enemy_units):
+    closest_distance = max(world.get_height(), world.get_width())
+    # closest enemy position
+    # distance to any part of snake
+    for enemy in enemy_units:
+        for body in friendly_unit.snake:
+            distance = len(world.path.get_shortest_path(body, enemy.postition, enemy.snake))
+            if distance < closest_distance:
+                closest_distance = distance
+    return closest_distance
