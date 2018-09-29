@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36085e4a-9274-4fd0-a547-89f09c1cfcf2" name="Default" comment="" />
+    <list default="true" id="36085e4a-9274-4fd0-a547-89f09c1cfcf2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Bots/BeepBoop/PlayerAI.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +63,44 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2085725791">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bots/Perpentine/PlayerAI.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bots/BeepBoop/PlayerAI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -92,12 +124,16 @@
       <find>closing</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Libraries/PythonClientAPI/comm/ClientHandlerProtocol.py" />
         <option value="$PROJECT_DIR$/Libraries/RunPythonClient.py" />
         <option value="$PROJECT_DIR$/Bots/Perpentine/PlayerAI.py" />
+        <option value="$PROJECT_DIR$/Bots/BeepBoop/PlayerAI.py" />
       </list>
     </option>
   </component>
@@ -108,7 +144,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="21" />
+    <option name="x" value="97" />
+    <option name="y" value="93" />
     <option name="width" value="1440" />
     <option name="height" value="819" />
   </component>
@@ -121,24 +158,19 @@
         <subPane>
           <expand>
             <path>
-              <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
+              <item name="OrbisChallenge2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OrbisChallenge2018" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
+              <item name="OrbisChallenge2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OrbisChallenge2018" type="462c0819:PsiDirectoryNode" />
               <item name="Bots" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
+              <item name="OrbisChallenge2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OrbisChallenge2018" type="462c0819:PsiDirectoryNode" />
               <item name="Bots" type="462c0819:PsiDirectoryNode" />
               <item name="Perpentine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
-              <item name="MatchPresets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,10 +218,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18947369" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19271255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -274,7 +306,7 @@
     <entry file="file://$PROJECT_DIR$/Bots/Perpentine/PlayerAI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
@@ -285,6 +317,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bots/BeepBoop/PlayerAI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
